@@ -5,7 +5,7 @@ import { lovelyCoffee } from "../fonts";
 function Hero() {
   return (
     <section id="hero">
-      <div className="px-6 py-16">
+      <div className="px-6 py-16 text-[#D5AF6F]">
         <h3 className="text-3xl text-center font-semibold">
           Wedding Invitation
         </h3>
@@ -20,8 +20,8 @@ function Hero() {
         <h1 className="text-[6rem] leading-[1] font-semibold text-center mb-8">
           YORIKO
         </h1>
-        <div className="h-[31.25rem] bg-zinc-300 rounded-tl-full rounded-tr-full flex items-end justify-center p-4">
-          <button className="rounded-[3.125rem] border-2 border-black flex flex-col gap-4 py-4 px-5 items-center text-center">
+        <div className="h-[31.25rem] bg-[url('/assets/hero-bg.svg')] bg-cover bg-no-repeat rounded-tl-full rounded-tr-full flex items-end justify-center p-4">
+          <button className="rounded-[3.125rem] border-2 border-white text-white flex flex-col gap-6 py-4 px-5 items-center text-center">
             <span className="text-2xl font-semibold">
               Our
               <br />

@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={benton.className}>{children}</body>
+      <body className={`${benton.className} bg-[#003C4C]`}>{children}</body>
     </html>
   );
 }

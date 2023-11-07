@@ -5,8 +5,8 @@ import React from "react";
 function Bride() {
   return (
     <section id="bride">
-      <div>
-        <div className="h-[15rem] bg-zinc-300"></div>
+      <div className="text-[#D5AF6F]">
+        <div className="h-[15rem] bg-[url('/assets/groom.svg')] bg-cover bg-no-repeat"></div>
         <div className="py-12 flex flex-col items-center gap-16 font-bold">
           <div className="space-y-4 text-center">
             <h1 className="text-4xl">Muhamad Agy Nurwicaksono</h1>
@@ -21,7 +21,7 @@ function Bride() {
           </div>
           <span className="text-8xl ">&</span>
         </div>
-        <div className="h-[15rem] bg-zinc-300"></div>
+        <div className="h-[15rem] bg-[url('/assets/bride.svg')] bg-cover bg-no-repeat"></div>
         <div className="py-12 font-bold space-y-4 text-center">
           <h1 className="text-4xl">Yoriko Angeline</h1>
           <h3 className="text-2xl">Putri dari Agus dan Ibu Tuti</h3>
