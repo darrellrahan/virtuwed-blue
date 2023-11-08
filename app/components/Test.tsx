@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -30,47 +30,87 @@ function PrevArrow(props: any) {
 }
 
 function Test() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
   const settings = {
     centerMode: true,
-    centerPadding: "45px",
+    centerPadding: "60px",
     slidesToShow: 1,
     speed: 500,
+    afterChange: (currentSlide: number) => {
+      setActiveSlide(currentSlide);
+    },
   };
 
   return (
     <div className="py-8">
       <Slider {...settings} nextArrow={<NextArrow />} prevArrow={<PrevArrow />}>
-        <div>
-          <div className="w-[270px] h-[530px] mx-auto bg-green-600">
+        <div className="px-10">
+          <div
+            className={`${
+              activeSlide === 0
+                ? "w-[250px] h-[500px] bg-blue-600"
+                : "w-[200px] h-[450px] bg-green-600"
+            } duration-300 ease-linear mx-auto`}
+          >
             Slide 1
           </div>
         </div>
-        <div>
-          <div className="w-[270px] h-[530px] mx-auto bg-green-600">
+        <div className="px-10">
+          <div
+            className={`${
+              activeSlide === 1
+                ? "w-[250px] h-[500px] bg-blue-600"
+                : "w-[200px] h-[450px] bg-green-600"
+            } duration-300 ease-linear mx-auto`}
+          >
             Slide 2
           </div>
         </div>
-        <div>
-          <div className="w-[270px] h-[530px] mx-auto bg-green-600">
+        <div className="px-10">
+          <div
+            className={`${
+              activeSlide === 2
+                ? "w-[250px] h-[500px] bg-blue-600"
+                : "w-[200px] h-[450px] bg-green-600"
+            } duration-300 ease-linear mx-auto`}
+          >
             Slide 3
           </div>
         </div>
-        <div>
-          <div className="w-[270px] h-[530px] mx-auto bg-green-600">
+        <div className="px-10">
+          <div
+            className={`${
+              activeSlide === 3
+                ? "w-[250px] h-[500px] bg-blue-600"
+                : "w-[200px] h-[450px] bg-green-600"
+            } duration-300 ease-linear mx-auto`}
+          >
             Slide 4
           </div>
         </div>
-        <div>
-          <div className="w-[270px] h-[530px] mx-auto bg-green-600">
+        <div className="px-10">
+          <div
+            className={`${
+              activeSlide === 4
+                ? "w-[250px] h-[500px] bg-blue-600"
+                : "w-[200px] h-[450px] bg-green-600"
+            } duration-300 ease-linear mx-auto`}
+          >
             Slide 5
           </div>
         </div>
-        <div>
-          <div className="w-[270px] h-[530px] mx-auto bg-green-600">
+        <div className="px-10">
+          <div
+            className={`${
+              activeSlide === 5
+                ? "w-[250px] h-[500px] bg-blue-600"
+                : "w-[200px] h-[450px] bg-green-600"
+            } duration-300 ease-linear mx-auto`}
+          >
             Slide 6
           </div>
         </div>
-        {/* Add more slides as needed */}
       </Slider>
     </div>
   );

@@ -2,16 +2,16 @@ import Hero from "./components/Hero";
 import Date from "./components/Date";
 import Bride from "./components/Bride";
 import DetailDate from "./components/DetailDate";
-import Test from "./components/Test";
+import Story from "./components/Story";
 
 export default function Home() {
   return (
     <>
-      {/* <Test /> */}
       <Hero />
       <Date />
       <Bride />
       <DetailDate />
+      <Story />
     </>
   );
 }

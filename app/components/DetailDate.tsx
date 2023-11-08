@@ -3,8 +3,9 @@ import { lovelyCoffee } from "../fonts";
 
 function DetailDate() {
   return (
-    <section id="detail-date">
-      <div className="px-6 py-12 text-[#D5AF6F]">
+    <section id="detail-date" className="relative">
+      <div className="absolute bottom-0 inset-x-0 h-[125px] bg-[url('/assets/date-flower.png')]"></div>
+      <div className="px-6 pt-12 pb-40 text-[#D5AF6F]">
         <h1 className={`text-center text-8xl mb-8 ${lovelyCoffee.className}`}>
           Save
           <br />

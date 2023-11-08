@@ -4,8 +4,10 @@ import React from "react";
 
 function Bride() {
   return (
-    <section id="bride">
-      <div className="text-[#D5AF6F]">
+    <section id="bride" className="relative">
+      <div className="absolute inset-0 bg-[url('/assets/bride-bg.svg')] bg-cover"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,60,76,0.78)_0%,rgba(0,60,76,0.85)_74.88%,#003C4C_109.92%)]"></div>
+      <div className="text-[#D5AF6F] z-20 relative">
         <div className="h-[15rem] bg-[url('/assets/groom.svg')] bg-cover bg-no-repeat"></div>
         <div className="py-12 flex flex-col items-center gap-16 font-bold">
           <div className="space-y-4 text-center">
