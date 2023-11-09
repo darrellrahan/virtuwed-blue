@@ -77,8 +77,16 @@ function Story() {
                   <div
                     className={`w-full h-[530px] rounded-[300px] ${data.img} bg-cover bg-no-repeat mb-8`}
                   ></div>
-                  <div className="w-1 h-14 bg-[#D5AF6F]"></div>
-                  <h3 className="text-center my-4 text-4xl font-bold">
+                  <div
+                    className={`w-1 h-14 bg-[#D5AF6F] duration-300 ease-linear ${
+                      index === carouselIndex ? "opacity-100" : "opacity-0"
+                    }`}
+                  ></div>
+                  <h3
+                    className={`text-center my-4 text-4xl font-bold duration-300 ease-linear ${
+                      index === carouselIndex ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
                     The Day We Met
                   </h3>
                   <p
