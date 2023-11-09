@@ -14,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${benton.className} bg-[#003C4C]`}>{children}</body>
+      <body className={`${benton.className} bg-[#003C4C] overflow-x-hidden`}>
+        {children}
+      </body>
     </html>
   );
 }
