@@ -6,14 +6,14 @@ function Footer() {
     <section id="footer">
       <div className="h-screen flex items-center justify-center relative overflow-hidden">
         <Image
-          src="/assets/footer-accent-left.svg"
+          src="/assets/footer-accent.svg"
           alt="accent"
           width={800}
           height={800}
           className="hidden lg:block absolute bottom-0 left-0 -translate-x-[3.9rem]"
         />
         <Image
-          src="/assets/footer-accent-left.svg"
+          src="/assets/footer-accent.svg"
           alt="accent"
           width={800}
           height={800}
