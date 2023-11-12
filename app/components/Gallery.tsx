@@ -6,20 +6,20 @@ import { lovelyCoffee } from "../fonts";
 function Gallery() {
   return (
     <section id="gallery">
-      <div className="relative">
+      <div className="relative my-8">
         <Image
           src="/assets/gallery-flower.png"
           alt="flower"
-          width={125}
-          height={110}
-          className="absolute top-0 right-0"
+          width={150}
+          height={150}
+          className="absolute top-0 right-0 lg:hidden"
         />
         <h1
-          className={`text-[#D5AF6F] px-6 text-[5rem] mb-16 ${lovelyCoffee.className}`}
+          className={`text-[#D5AF6F] px-6 text-[5rem] mb-4 lg:text-center lg:text-8xl lg:mb-16 ${lovelyCoffee.className}`}
         >
           Our Gallery
         </h1>
-        <div className="h-[250px] flex items-center justify-center relative bg-[url('/assets/gallery.svg')]">
+        <div className="h-[250px] lg:w-[900px] lg:mx-auto lg:h-[550px] flex items-center justify-center relative bg-[url('/assets/gallery.svg')] bg-cover bg-no-repeat">
           <div className="absolute inset-0 bg-black/40"></div>
           <button className="z-10">
             <Play size={80} color="#ffffff" weight="fill" />

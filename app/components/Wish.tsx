@@ -5,16 +5,16 @@ import { lovelyCoffee } from "../fonts";
 function Wish() {
   return (
     <section id="wish" className="relative">
-      <div className="absolute top-80 inset-x-0 h-[650px] bg-[url('/assets/wishes-bg.svg')] bg-cover bg-no-repeat"></div>
-      <div className="px-6 pt-32 z-10 relative">
+      <div className="absolute top-80 inset-x-0 h-[650px] bg-[url('/assets/wishes-bg.svg')] bg-cover bg-no-repeat lg:hidden"></div>
+      <div className="px-6 lg:px-16 pt-16 lg:pt-32 z-10 relative">
         <h1
-          className={`text-[#D5AF6F] text-7xl ${lovelyCoffee.className} text-center mb-8`}
+          className={`text-[#D5AF6F] text-7xl lg:text-8xl ${lovelyCoffee.className} text-center mb-8 lg:mb-16`}
         >
-          Wedding Wish
+          Wedding Wishes
         </h1>
-        <div className="grid grid-cols-3 gap-4 mb-12">
+        <div className="grid grid-cols-3 gap-4 lg:gap-8 mb-12 lg:w-[600px] lg:mx-auto">
           <div className="bg-[#D5AF6F] p-4">
-            <div className="bg-white h-[115px] flex items-center justify-center text-5xl mb-4">
+            <div className="bg-white h-[115px] lg:h-[180px] flex items-center justify-center text-5xl lg:text-7xl mb-4">
               0
             </div>
             <p className="text-3xl font-semibold text-center text-[#003C4C]">
@@ -22,7 +22,7 @@ function Wish() {
             </p>
           </div>
           <div className="bg-[#D5AF6F] p-4">
-            <div className="bg-white h-[115px] flex items-center justify-center text-5xl mb-4">
+            <div className="bg-white h-[115px] lg:h-[180px] flex items-center justify-center text-5xl lg:text-7xl mb-4">
               0
             </div>
             <p className="text-3xl font-semibold text-center text-[#003C4C]">
@@ -30,7 +30,7 @@ function Wish() {
             </p>
           </div>
           <div className="bg-[#D5AF6F] p-4">
-            <div className="bg-white h-[115px] flex items-center justify-center text-5xl mb-4">
+            <div className="bg-white h-[115px] lg:h-[180px] flex items-center justify-center text-5xl lg:text-7xl mb-4">
               0
             </div>
             <p className="text-3xl font-semibold text-center text-[#003C4C]">
@@ -38,7 +38,7 @@ function Wish() {
             </p>
           </div>
         </div>
-        <div className="space-y-4 mb-12">
+        <div className="space-y-4 mb-12 lg:mb-32 lg:w-[600px] lg:mx-auto">
           <div className="grid grid-cols-2 gap-4 h-[60px] text-xl font-semibold">
             <input
               type="text"
@@ -68,14 +68,16 @@ function Wish() {
             </button>
           </div>
         </div>
-        <h3 className="text-[#D5AF6F] text-3xl font-bold mb-8">18 Wishes</h3>
-        <div className="space-y-4 mb-8">
+        <h3 className="text-[#D5AF6F] text-3xl lg:text-4xl lg:font-semibold lg:mb-10 font-bold mb-8">
+          18 Wishes
+        </h3>
+        <div className="space-y-4 mb-8 lg:mb-16 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8">
           <div className="p-6 bg-white rounded-md">
             <div className="flex items-end gap-3 mb-1">
               <h4 className="text-2xl font-bold">Darrell</h4>
               <p className="text-lg font-light">3h ago</p>
             </div>
-            <p className="text-[1.35rem] font-light">
+            <p className="text-[1.35rem] font-light overflow-hidden">
               semangat menempuh hidup baru ya
             </p>
           </div>
@@ -87,6 +89,52 @@ function Wish() {
             <p className="text-[1.35rem] font-light">semoga langgeng</p>
           </div>
           <div className="p-6 bg-white rounded-md">
+            <div className="flex items-end gap-3 mb-1">
+              <h4 className="text-2xl font-bold">Elang Fajar Buana</h4>
+              <p className="text-lg font-light">1w ago</p>
+            </div>
+            <p className="text-[1.35rem] font-light">gacor teruss</p>
+          </div>
+          <div className="p-6 bg-white rounded-md hidden lg:block">
+            <div className="flex items-end gap-3 mb-1">
+              <h4 className="text-2xl font-bold">Darrell</h4>
+              <p className="text-lg font-light">3h ago</p>
+            </div>
+            <p className="text-[1.35rem] font-light overflow-hidden">
+              semangat menempuh hidup baru ya
+            </p>
+          </div>
+          <div className="p-6 bg-white rounded-md hidden lg:block">
+            <div className="flex items-end gap-3 mb-1">
+              <h4 className="text-2xl font-bold">Pamella</h4>
+              <p className="text-lg font-light">1d ago</p>
+            </div>
+            <p className="text-[1.35rem] font-light">semoga langgeng</p>
+          </div>
+          <div className="p-6 bg-white rounded-md hidden lg:block">
+            <div className="flex items-end gap-3 mb-1">
+              <h4 className="text-2xl font-bold">Elang Fajar Buana</h4>
+              <p className="text-lg font-light">1w ago</p>
+            </div>
+            <p className="text-[1.35rem] font-light">gacor teruss</p>
+          </div>
+          <div className="p-6 bg-white rounded-md hidden lg:block">
+            <div className="flex items-end gap-3 mb-1">
+              <h4 className="text-2xl font-bold">Darrell</h4>
+              <p className="text-lg font-light">3h ago</p>
+            </div>
+            <p className="text-[1.35rem] font-light overflow-hidden">
+              semangat menempuh hidup baru ya
+            </p>
+          </div>
+          <div className="p-6 bg-white rounded-md hidden lg:block">
+            <div className="flex items-end gap-3 mb-1">
+              <h4 className="text-2xl font-bold">Pamella</h4>
+              <p className="text-lg font-light">1d ago</p>
+            </div>
+            <p className="text-[1.35rem] font-light">semoga langgeng</p>
+          </div>
+          <div className="p-6 bg-white rounded-md hidden lg:block">
             <div className="flex items-end gap-3 mb-1">
               <h4 className="text-2xl font-bold">Elang Fajar Buana</h4>
               <p className="text-lg font-light">1w ago</p>

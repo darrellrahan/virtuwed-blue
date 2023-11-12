@@ -29,24 +29,24 @@ function Story() {
 
   return (
     <section id="story">
-      <div className="py-24 text-[#D5AF6F]">
+      <div className="py-24 text-[#D5AF6F] lg:flex lg:px-16">
         <h1
-          className={`text-[4.25rem] text-center mb-12 ${lovelyCoffee.className}`}
+          className={`text-[4.25rem] lg:translate-y-52 lg:translate-x-12 lg:text-9xl text-center mb-12 ${lovelyCoffee.className}`}
         >
-          Our Story & Moment
+          Our Story <br className="hidden lg:inline-block" /> & Moment
         </h1>
-        <div className="px-6 flex justify-between">
-          <button onClick={prevSlide}>
-            <ArrowLeft size={36} weight="bold" />
-          </button>
-          <button onClick={nextSlide}>
-            <ArrowRight size={36} weight="bold" />
-          </button>
-        </div>
-        <div>
-          <div className="relative h-[60.125rem] overflow-hidden flex items-center">
+        <div className="lg:w-full">
+          <div className="px-6 lg:px-0 flex justify-between lg:justify-end lg:gap-4">
+            <button onClick={prevSlide}>
+              <ArrowLeft size={36} weight="bold" />
+            </button>
+            <button onClick={nextSlide}>
+              <ArrowRight size={36} weight="bold" />
+            </button>
+          </div>
+          <div className="relative h-[60.125rem] lg:h-[65rem] overflow-hidden flex items-center lg:translate-x-20">
             {CAROUSEL_DATA.map((data, index) => {
-              let className = "translate-x-[108%] z-20";
+              let className = "lg:translate-x-[115%] translate-x-[108%] z-20";
 
               if (index === carouselIndex) {
                 className = "translate-x-0 z-30";
@@ -55,14 +55,16 @@ function Story() {
                 index === carouselIndex - 1 ||
                 (index === 2 && carouselIndex === 0)
               ) {
-                className = "-translate-x-[108%] z-20";
+                className = "lg:-translate-x-[115%] -translate-x-[108%] z-20";
               }
 
               return (
                 <div
                   key={data.img}
-                  className={`absolute inset-x-0 w-[290px] mx-auto flex flex-col items-center duration-[0.5s] ease-linear ${className} ${
-                    index === carouselIndex ? "inset-y-0" : "inset-y-8"
+                  className={`absolute inset-x-0 w-[290px] lg:w-[250px] mx-auto flex flex-col items-center duration-[0.5s] ease-linear ${className} ${
+                    index === carouselIndex
+                      ? "inset-y-0"
+                      : "inset-y-8 lg:inset-y-24"
                   }`}
                 >
                   <Image
@@ -71,7 +73,9 @@ function Story() {
                     width={300}
                     height={100}
                     className={`translate-y-8 duration-300 ease-linear ${
-                      index === carouselIndex ? "opacity-100" : "opacity-0"
+                      index === carouselIndex
+                        ? "opacity-100"
+                        : "opacity-0 lg:opacity-100"
                     }`}
                   />
                   <div
@@ -79,19 +83,25 @@ function Story() {
                   ></div>
                   <div
                     className={`w-1 h-14 bg-[#D5AF6F] duration-300 ease-linear ${
-                      index === carouselIndex ? "opacity-100" : "opacity-0"
+                      index === carouselIndex
+                        ? "opacity-100"
+                        : "opacity-0 lg:opacity-100"
                     }`}
                   ></div>
                   <h3
                     className={`text-center my-4 text-4xl font-bold duration-300 ease-linear ${
-                      index === carouselIndex ? "opacity-100" : "opacity-0"
+                      index === carouselIndex
+                        ? "opacity-100"
+                        : "opacity-0 lg:opacity-100"
                     }`}
                   >
                     The Day We Met
                   </h3>
                   <p
                     className={`text-white text-2xl text-justify font-medium duration-300 ease-linear ${
-                      index === carouselIndex ? "opacity-100" : "opacity-0"
+                      index === carouselIndex
+                        ? "opacity-100"
+                        : "opacity-0 lg:opacity-100"
                     }`}
                   >
                     It was late afternoon, the first time we met. A quick hello
