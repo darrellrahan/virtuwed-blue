@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { lovelyCoffee } from "../fonts";
 
 function DetailDate() {
+  const [isTabVirtual, setIsTabVirtual] = useState(true);
+
   return (
     <section id="detail-date" className="relative">
       <div className="absolute inset-0 bg-[url('/assets/date-bg.svg')] bg-no-repeat bg-cover bg-center hidden lg:block"></div>
@@ -31,21 +35,30 @@ function DetailDate() {
           00:00:00:00
         </h3>
         <div className="grid grid-cols-2 text-xl lg:text-3xl mb-10 lg:mb-16">
-          <button className="border-r-2 border-b-2 pb-3 lg:pb-4 border-[#84A7A1]">
+          <button
+            onClick={() => setIsTabVirtual(true)}
+            className={`border-r-2 border-b-2 pb-3 border-[#84A7A1] lg:pb-4 ${
+              isTabVirtual ? "underline" : ""
+            }`}
+          >
             Resepsi Virtual
           </button>
-          <button className="border-b-2 pb-3 lg:pb-4 border-[#84A7A1]">
+          <button
+            onClick={() => setIsTabVirtual(false)}
+            className={`border-b-2 pb-3 lg:pb-4 border-[#84A7A1] ${
+              !isTabVirtual ? "underline" : ""
+            }`}
+          >
             Resepsi
           </button>
         </div>
         <div className="text-center space-y-4 mb-16 text-[#84a7a1]">
           <h1 className="text-3xl lg:text-4xl font-semibold">
-            Intimate Virtual <br className="lg:hidden" />
-            Reception
+            {isTabVirtual ? "Intimate Reception" : "It's Wedding Day"}
           </h1>
           <p className="font-medium text-xl lg:text-2xl">
             We invite you to the following <br />
-            Virtual Wedding Reception
+            {isTabVirtual && "Virtual"} Wedding Reception
           </p>
         </div>
         <div className="mb-12 lg:mb-20 lg:flex lg:justify-center lg:gap-16">
