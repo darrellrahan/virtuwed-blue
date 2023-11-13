@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
+import { Zoom } from "react-awesome-reveal";
 
 function Footer() {
   return (
@@ -21,13 +24,15 @@ function Footer() {
           style={{ transform: "rotateY(180deg)" }}
         />
         <div className="absolute bottom-0 inset-x-0 h-[250px] bg-[url('/assets/footer-accent.png')] bg-cover bg-no-repeat lg:hidden"></div>
-        <Image
-          src="/assets/footer.svg"
-          alt="logo"
-          width={1000}
-          height={1000}
-          className="-translate-y-16 lg:translate-y-0 w-[300px] h-[300px] lg:w-[400px] lg:h-[400px]"
-        />
+        <Zoom>
+          <Image
+            src="/assets/footer.svg"
+            alt="logo"
+            width={1000}
+            height={1000}
+            className="-translate-y-16 lg:translate-y-0 w-[300px] h-[300px] lg:w-[400px] lg:h-[400px]"
+          />
+        </Zoom>
       </div>
     </section>
   );

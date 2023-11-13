@@ -3,6 +3,7 @@
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import React, { useState } from "react";
+import { Fade } from "react-awesome-reveal";
 import { lovelyCoffee } from "../fonts";
 
 function Story() {
@@ -30,11 +31,13 @@ function Story() {
   return (
     <section id="story">
       <div className="py-24 text-[#D5AF6F] lg:flex lg:px-16">
-        <h1
-          className={`text-[4.25rem] lg:translate-y-52 lg:translate-x-12 lg:text-9xl text-center mb-12 ${lovelyCoffee.className}`}
-        >
-          Our Story <br className="hidden lg:inline-block" /> & Moment
-        </h1>
+        <Fade direction="left">
+          <h1
+            className={`text-[4.25rem] lg:translate-y-52 lg:translate-x-12 lg:text-9xl text-center mb-12 ${lovelyCoffee.className}`}
+          >
+            Our Story <br className="hidden lg:inline-block" /> & Moment
+          </h1>
+        </Fade>
         <div className="lg:w-full">
           <div className="px-6 lg:px-0 flex justify-between lg:justify-end lg:gap-4">
             <button onClick={prevSlide}>

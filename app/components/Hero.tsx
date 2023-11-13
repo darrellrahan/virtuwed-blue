@@ -1,5 +1,8 @@
+"use client";
+
 import { ArrowDown } from "@phosphor-icons/react/dist/ssr";
 import React from "react";
+import { Fade, Zoom } from "react-awesome-reveal";
 import { lovelyCoffee } from "../fonts";
 
 function Hero() {
@@ -9,31 +12,35 @@ function Hero() {
         <div className="hidden lg:block absolute inset-y-0 left-0 w-[250px] bg-[url('/assets/hero-accent-left.svg')] bg-cover bg-no-repeat"></div>
         <div className="hidden lg:block absolute inset-y-0 right-0 w-[250px] bg-[url('/assets/hero-accent-right.svg')] bg-cover bg-no-repeat"></div>
         <div className="hidden lg:flex absolute inset-x-0 bottom-0 justify-center">
-          <button className="rounded-[3.125rem] border-2 border-white text-white flex flex-col gap-6 py-4 px-5 items-center text-center">
-            <span className="text-2xl font-semibold">
-              Our
-              <br />
-              Story
-            </span>
-            <span>
-              <ArrowDown size={32} />
-            </span>
-          </button>
+          <Fade direction="up">
+            <button className="rounded-[3.125rem] border-2 border-white text-white flex flex-col gap-6 py-4 px-5 items-center text-center animate-bounce">
+              <span className="text-2xl font-semibold">
+                Our
+                <br />
+                Story
+              </span>
+              <span>
+                <ArrowDown size={32} />
+              </span>
+            </button>
+          </Fade>
         </div>
         <div className="lg:scale-[1.75] lg:-translate-y-12 z-20 relative">
           <h3 className="text-3xl lg:text-2xl lg:font-medium text-center font-semibold">
-            Wedding Invitation
+            <Zoom>Wedding Invitation</Zoom>
           </h3>
           <div className="flex gap-8 lg:justify-center items-end">
-            <h1 className="text-[6rem] leading-[1] font-semibold">AGY</h1>
+            <h1 className="text-[6rem] leading-[1] font-semibold">
+              <Fade direction="left">AGY</Fade>
+            </h1>
             <span
               className={`text-[7.5rem] leading-[1] ${lovelyCoffee.className}`}
             >
-              and
+              <Fade direction="right">and</Fade>
             </span>
           </div>
           <h1 className="text-[6rem] leading-[1] font-semibold text-center">
-            YORIKO
+            <Fade direction="up">YORIKO</Fade>
           </h1>
         </div>
         <div className="h-[31.25rem] lg:h-full bg-[url('/assets/hero-bg.svg')] bg-cover bg-no-repeat lg:bg-[50%_80%] rounded-tl-full rounded-tr-full flex items-end justify-center p-4 z-20 relative">

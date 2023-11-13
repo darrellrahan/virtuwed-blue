@@ -1,6 +1,9 @@
+"use client";
+
 import { Play } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import React from "react";
+import { Fade } from "react-awesome-reveal";
 import { lovelyCoffee } from "../fonts";
 
 function Gallery() {
@@ -17,14 +20,16 @@ function Gallery() {
         <h1
           className={`text-[#D5AF6F] px-6 text-[5rem] mb-4 lg:text-center lg:text-8xl lg:mb-16 ${lovelyCoffee.className}`}
         >
-          Our Gallery
+          <Fade direction="up">Our Gallery</Fade>
         </h1>
-        <div className="h-[250px] lg:w-[900px] lg:mx-auto lg:h-[550px] flex items-center justify-center relative bg-[url('/assets/gallery.svg')] bg-cover bg-no-repeat">
-          <div className="absolute inset-0 bg-black/40"></div>
-          <button className="z-10">
-            <Play size={80} color="#ffffff" weight="fill" />
-          </button>
-        </div>
+        <Fade direction="up">
+          <div className="h-[250px] lg:w-[900px] lg:mx-auto lg:h-[550px] flex items-center justify-center relative bg-[url('/assets/gallery.svg')] bg-cover bg-no-repeat">
+            <div className="absolute inset-0 bg-black/40"></div>
+            <button className="z-10">
+              <Play size={80} color="#ffffff" weight="fill" />
+            </button>
+          </div>
+        </Fade>
       </div>
     </section>
   );
