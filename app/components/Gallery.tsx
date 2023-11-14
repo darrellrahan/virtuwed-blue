@@ -17,11 +17,13 @@ function Gallery() {
           height={150}
           className="absolute top-0 right-0 lg:hidden"
         />
-        <h1
-          className={`text-[#D5AF6F] px-6 text-[5rem] mb-4 lg:text-center lg:text-8xl lg:mb-16 ${lovelyCoffee.className}`}
-        >
-          <Fade direction="up">Our Gallery</Fade>
-        </h1>
+        <Fade direction="up">
+          <h1
+            className={`text-[#D5AF6F] px-6 text-[5rem] mb-4 lg:text-center lg:text-8xl lg:mb-16 ${lovelyCoffee.className}`}
+          >
+            Our Gallery
+          </h1>
+        </Fade>
         <Fade direction="up">
           <div className="h-[250px] lg:w-[900px] lg:mx-auto lg:h-[550px] flex items-center justify-center relative bg-[url('/assets/gallery.svg')] bg-cover bg-no-repeat">
             <div className="absolute inset-0 bg-black/40"></div>

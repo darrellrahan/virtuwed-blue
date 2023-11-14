@@ -10,11 +10,13 @@ function Wish() {
     <section id="wish" className="relative">
       <div className="absolute top-80 inset-x-0 h-[650px] bg-[url('/assets/wishes-bg.svg')] bg-cover bg-no-repeat lg:hidden"></div>
       <div className="px-6 lg:px-16 pt-16 lg:pt-32 z-10 relative">
-        <h1
-          className={`text-[#D5AF6F] text-7xl lg:text-8xl ${lovelyCoffee.className} text-center mb-8 lg:mb-16`}
-        >
-          <Fade direction="up">Wedding Wishes</Fade>
-        </h1>
+        <Fade direction="up">
+          <h1
+            className={`text-[#D5AF6F] text-7xl lg:text-8xl ${lovelyCoffee.className} text-center mb-8 lg:mb-16`}
+          >
+            Wedding Wishes
+          </h1>
+        </Fade>
         <Fade direction="up">
           <div className="grid grid-cols-3 gap-4 lg:gap-8 mb-12 lg:w-[600px] lg:mx-auto">
             <div className="bg-[#D5AF6F] p-4">
@@ -73,9 +75,11 @@ function Wish() {
             </div>
           </div>
         </Fade>
-        <h3 className="text-[#D5AF6F] text-3xl lg:text-4xl lg:font-semibold lg:mb-10 font-bold mb-8">
-          <Zoom>18 Wishes</Zoom>
-        </h3>
+        <Zoom>
+          <h3 className="text-[#D5AF6F] text-3xl lg:text-4xl lg:font-semibold lg:mb-10 font-bold mb-8">
+            18 Wishes
+          </h3>
+        </Zoom>
         <Zoom>
           <div className="space-y-4 mb-8 lg:mb-16 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8">
             <div className="p-6 bg-white rounded-md">

@@ -26,22 +26,28 @@ function Hero() {
           </Fade>
         </div>
         <div className="lg:scale-[1.75] lg:-translate-y-12 z-20 relative">
-          <h3 className="text-3xl lg:text-2xl lg:font-medium text-center font-semibold">
-            <Zoom>Wedding Invitation</Zoom>
-          </h3>
+          <Zoom>
+            <h3 className="text-3xl lg:text-2xl lg:font-medium text-center font-semibold">
+              Wedding Invitation
+            </h3>
+          </Zoom>
           <div className="flex gap-8 lg:justify-center items-end">
-            <h1 className="text-[6rem] leading-[1] font-semibold">
-              <Fade direction="left">AGY</Fade>
-            </h1>
-            <span
-              className={`text-[7.5rem] leading-[1] ${lovelyCoffee.className}`}
-            >
-              <Fade direction="right">and</Fade>
-            </span>
+            <Fade direction="left">
+              <h1 className="text-[6rem] leading-[1] font-semibold">AGY</h1>
+            </Fade>
+            <Fade direction="right">
+              <span
+                className={`text-[7.5rem] leading-[1] ${lovelyCoffee.className}`}
+              >
+                and
+              </span>
+            </Fade>
           </div>
-          <h1 className="text-[6rem] leading-[1] font-semibold text-center">
-            <Fade direction="up">YORIKO</Fade>
-          </h1>
+          <Fade direction="up">
+            <h1 className="text-[6rem] leading-[1] font-semibold text-center">
+              YORIKO
+            </h1>
+          </Fade>
         </div>
         <div className="h-[31.25rem] lg:h-full bg-[url('/assets/hero-bg.svg')] bg-cover bg-no-repeat lg:bg-[50%_80%] rounded-tl-full rounded-tr-full flex items-end justify-center p-4 z-20 relative">
           <button className="lg:hidden rounded-[3.125rem] border-2 border-white text-white flex flex-col gap-6 py-4 px-5 items-center text-center">
