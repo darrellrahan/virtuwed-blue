@@ -50,7 +50,7 @@ function Hero() {
           </Fade>
         </div>
         <div className="h-[31.25rem] lg:h-full bg-[url('/assets/hero-bg.svg')] bg-cover bg-no-repeat lg:bg-[50%_80%] rounded-tl-full rounded-tr-full flex items-end justify-center p-4 z-20 relative">
-          <button className="lg:hidden rounded-[3.125rem] border-2 border-white text-white flex flex-col gap-6 py-4 px-5 items-center text-center">
+          <button className="lg:hidden rounded-[3.125rem] border-2 border-white text-white flex flex-col gap-6 py-4 px-5 items-center text-center animate-bounce">
             <span className="text-2xl font-semibold">
               Our
               <br />

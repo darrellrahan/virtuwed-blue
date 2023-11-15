@@ -47,7 +47,7 @@ function DetailDate() {
                 isTabVirtual ? "underline" : ""
               }`}
             >
-              Resepsi Virtual
+              Online
             </button>
             <button
               onClick={() => setIsTabVirtual(false)}
@@ -55,7 +55,7 @@ function DetailDate() {
                 !isTabVirtual ? "underline" : ""
               }`}
             >
-              Resepsi
+              Offline
             </button>
           </div>
         </Fade>
@@ -104,7 +104,7 @@ function DetailDate() {
         <Fade direction="up">
           <div className="flex justify-center">
             <button className="rounded-md border-2 border-[#D5AF6F] bg-[#D5AF6F] text-[#003C4C] py-3 px-6 text-2xl font-bold">
-              Hadiri Resepsi
+              {isTabVirtual ? "Hadiri Resepsi" : "View Maps"}
             </button>
           </div>
         </Fade>

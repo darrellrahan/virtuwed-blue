@@ -47,9 +47,9 @@ function Story() {
               <ArrowRight size={36} weight="bold" />
             </button>
           </div>
-          <div className="relative h-[60.125rem] lg:h-[65rem] overflow-hidden flex items-center lg:translate-x-20">
+          <div className="relative h-[60.125rem] lg:h-[65rem] overflow-hidden flex items-center lg:translate-x-32">
             {CAROUSEL_DATA.map((data, index) => {
-              let className = "lg:translate-x-[115%] translate-x-[108%] z-20";
+              let className = "lg:translate-x-[95%] translate-x-[90%] z-20";
 
               if (index === carouselIndex) {
                 className = "translate-x-0 z-30";
@@ -58,16 +58,14 @@ function Story() {
                 index === carouselIndex - 1 ||
                 (index === 2 && carouselIndex === 0)
               ) {
-                className = "lg:-translate-x-[115%] -translate-x-[108%] z-20";
+                className = "lg:-translate-x-[95%] -translate-x-[90%] z-20";
               }
 
               return (
                 <div
                   key={data.img}
-                  className={`absolute inset-x-0 w-[290px] lg:w-[250px] mx-auto flex flex-col items-center duration-[0.5s] ease-linear ${className} ${
-                    index === carouselIndex
-                      ? "inset-y-0"
-                      : "inset-y-8 lg:inset-y-24"
+                  className={`absolute inset-0 w-[290px] lg:w-[250px] mx-auto flex flex-col items-center duration-[0.5s] ease-linear ${className} ${
+                    index === carouselIndex ? "scale-100" : "scale-[0.6]"
                   }`}
                 >
                   <Image

@@ -30,7 +30,7 @@ function Footer() {
             alt="logo"
             width={1000}
             height={1000}
-            className="-translate-y-16 lg:translate-y-0 w-[300px] h-[300px] lg:w-[400px] lg:h-[400px]"
+            className="animate-rotate w-[300px] h-[300px] lg:w-[400px] lg:h-[400px]"
           />
         </Zoom>
       </div>

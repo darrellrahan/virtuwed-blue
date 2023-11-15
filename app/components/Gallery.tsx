@@ -19,18 +19,19 @@ function Gallery() {
         />
         <Fade direction="up">
           <h1
-            className={`text-[#D5AF6F] px-6 text-[5rem] mb-4 lg:text-center lg:text-8xl lg:mb-16 ${lovelyCoffee.className}`}
+            className={`text-[#D5AF6F] px-6 text-[5rem] lg:text-center lg:text-8xl lg:mb-12 ${lovelyCoffee.className}`}
           >
             Our Gallery
           </h1>
         </Fade>
         <Fade direction="up">
-          <div className="h-[250px] lg:w-[900px] lg:mx-auto lg:h-[550px] flex items-center justify-center relative bg-[url('/assets/gallery.svg')] bg-cover bg-no-repeat">
-            <div className="absolute inset-0 bg-black/40"></div>
-            <button className="z-10">
-              <Play size={80} color="#ffffff" weight="fill" />
-            </button>
-          </div>
+          <video
+            className="h-[250px] lg:w-[900px] lg:mx-auto lg:h-[550px]"
+            poster="/assets/video-thumbnail.svg"
+            controls
+          >
+            <source src="/assets/video.mp4" type="video/mp4" />
+          </video>
         </Fade>
       </div>
     </section>

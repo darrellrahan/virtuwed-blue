@@ -9,6 +9,7 @@ function Wish() {
   return (
     <section id="wish" className="relative">
       <div className="absolute top-80 inset-x-0 h-[650px] bg-[url('/assets/wishes-bg.svg')] bg-cover bg-no-repeat lg:hidden"></div>
+      <div className="absolute top-48 inset-x-0 h-[850px] bg-[url('/assets/wishes-bg-desktop.svg')] bg-cover bg-no-repeat hidden lg:block"></div>
       <div className="px-6 lg:px-16 pt-16 lg:pt-32 z-10 relative">
         <Fade direction="up">
           <h1
@@ -55,7 +56,7 @@ function Wish() {
                 <span className="absolute top-3.5 right-4">
                   <CaretDown size={32} />
                 </span>
-                <select className="h-full w-full rounded-md px-4 flex items-center appearance-none">
+                <select className="h-full w-full rounded-md px-4 flex items-center appearance-none cursor-pointer">
                   <option value="hadir">Hadir</option>
                   <option value="absen">Absen</option>
                   <option value="ragu">Ragu</option>
