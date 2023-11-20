@@ -5,7 +5,29 @@ import Link from "next/link";
 import React from "react";
 import { Fade, Zoom } from "react-awesome-reveal";
 
-function Bride() {
+function Bride({
+  groomImg,
+  groomName,
+  groomIg,
+  groomDad,
+  groomMom,
+  brideImg,
+  brideName,
+  brideIg,
+  brideDad,
+  brideMom,
+}: {
+  groomImg: string;
+  groomName: string;
+  groomIg: string;
+  groomDad: string;
+  groomMom: string;
+  brideImg: string;
+  brideName: string;
+  brideIg: string;
+  brideDad: string;
+  brideMom: string;
+}) {
   return (
     <section id="bride" className="relative">
       <div className="absolute inset-0 bg-[url('/assets/bride-bg.svg')] bg-cover"></div>
@@ -18,9 +40,9 @@ function Bride() {
           <span className="text-[#D5AF6F] text-3xl font-semibold">
             Putra dari
             <br />
-            Bapak Agus
+            Bapak {groomDad}
             <br />
-            Ibu Evy
+            Ibu {groomMom}
           </span>
         </Fade>
         <Fade
@@ -28,54 +50,62 @@ function Bride() {
           className="absolute bottom-8 right-8 hidden lg:block z-10 text-right"
         >
           <span className="text-[#D5AF6F] text-3xl font-semibold">
-            Putra dari
+            Putri dari
             <br />
-            Bapak Agus
+            Bapak {brideDad}
             <br />
-            Ibu Tuti
+            Ibu {brideMom}
           </span>
         </Fade>
-        <div className="h-full lg:bg-[url('/assets/groom.svg')] lg:bg-cover lg:bg-no-repeat lg:bg-center relative lg:flex lg:items-center lg:justify-center">
+        <div className="h-full relative lg:flex lg:items-center lg:justify-center">
+          <div
+            className={`hidden lg:block absolute inset-0 bg-[url('https://sgp1.vultrobjects.com/virtuwed-storage/${groomImg}')] bg-cover bg-no-repeat bg-center`}
+          ></div>
           <div className="absolute inset-0 bg-black/50 hidden lg:block"></div>
-          <div className="h-[15rem] bg-[url('/assets/groom.svg')] bg-cover bg-no-repeat lg:hidden"></div>
+          <div
+            className={`h-[15rem] bg-[url('https://sgp1.vultrobjects.com/virtuwed-storage/${groomImg}')] bg-cover bg-[50%_25%] lg:hidden`}
+          ></div>
           <Zoom>
-            <div className="py-12 flex flex-col items-center gap-16 font-bold z-10 relative">
+            <div className="py-12 flex flex-col items-center gap-16 font-bold z-10 relative px-16">
               <div className="space-y-4 text-center">
                 <h1 className="text-4xl lg:text-5xl leading-[1.25]">
-                  Muhamad Agy
-                  <br />
-                  Nurwicaksono
+                  {groomName}
                 </h1>
-                <h3 className="text-2xl lg:hidden">Putra dari Agus dan Evy</h3>
+                <h3 className="text-2xl lg:hidden">
+                  Putra dari Bapak {brideDad} dan Ibu {brideMom}
+                </h3>
                 <Link
-                  href="https://www.instagram.com/agyson"
+                  href={`https://www.instagram.com/${groomIg}`}
                   className="flex items-center justify-center gap-2"
                 >
                   <InstagramLogo size={32} />
-                  <span className="text-2xl lg:font-normal">agyson</span>
+                  <span className="text-2xl lg:font-normal">{groomIg}</span>
                 </Link>
               </div>
               <span className="text-8xl lg:hidden">&</span>
             </div>
           </Zoom>
         </div>
-        <div className="h-full lg:bg-[url('/assets/bride.svg')] lg:bg-cover lg:bg-no-repeat lg:bg-center relative lg:flex lg:items-center lg:justify-center">
+        <div className="h-full relative lg:flex lg:items-center lg:justify-center">
+          <div
+            className={`hidden lg:block absolute inset-0 bg-[url('https://sgp1.vultrobjects.com/virtuwed-storage/${brideImg}')] bg-cover bg-no-repeat bg-center`}
+          ></div>
           <div className="absolute inset-0 bg-black/50 hidden lg:block"></div>
-          <div className="h-[15rem] bg-[url('/assets/bride.svg')] bg-cover bg-no-repeat lg:hidden"></div>
+          <div
+            className={`h-[15rem] bg-[url('https://sgp1.vultrobjects.com/virtuwed-storage/${brideImg}')] bg-cover bg-[50%_25%] lg:hidden`}
+          ></div>
           <Zoom>
-            <div className="py-12 font-bold space-y-4 text-center z-10 relative">
-              <h1 className="text-4xl lg:text-5xl">
-                Yoriko <br className="hidden lg:inline-block" /> Angeline
-              </h1>
+            <div className="py-12 font-bold space-y-4 text-center z-10 relative px-16">
+              <h1 className="text-4xl lg:text-5xl">{brideName}</h1>
               <h3 className="text-2xl lg:hidden">
-                Putri dari Agus dan Ibu Tuti
+                Putri dari Bapak {brideDad} dan Ibu {brideMom}
               </h3>
               <Link
-                href="https://www.instagram.com/yorikoangeline"
+                href={`https://www.instagram.com/${brideIg}`}
                 className="flex items-center justify-center gap-2"
               >
                 <InstagramLogo size={32} />
-                <span className="text-2xl lg:font-normal">yorikoangeline</span>
+                <span className="text-2xl lg:font-normal">{brideIg}</span>
               </Link>
             </div>
           </Zoom>

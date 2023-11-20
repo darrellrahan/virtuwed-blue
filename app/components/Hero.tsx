@@ -5,7 +5,7 @@ import React from "react";
 import { Fade, Zoom } from "react-awesome-reveal";
 import { lovelyCoffee } from "../fonts";
 
-function Hero() {
+function Hero({ weddingName, img }: { weddingName: string; img: string }) {
   return (
     <section id="hero">
       <div className="lg:h-screen lg:overflow-hidden px-6 pt-16 mb-12 text-[#D5AF6F] bg-[url('/assets/hero-accent-bg.svg')] lg:bg-none bg-cover bg-no-repeat lg:px-16 lg:grid lg:grid-cols-2 lg:gap-48 lg:items-center relative">
@@ -33,23 +33,27 @@ function Hero() {
           </Zoom>
           <div className="flex gap-8 lg:justify-center items-end">
             <Fade direction="left">
-              <h1 className="text-[6rem] leading-[1] font-semibold">AGY</h1>
+              <h1 className="text-[6rem] leading-[1] font-semibold">
+                {weddingName.split(" ")[0]}
+              </h1>
             </Fade>
             <Fade direction="right">
               <span
                 className={`text-[7.5rem] leading-[1] ${lovelyCoffee.className}`}
               >
-                and
+                {weddingName.split(" ")[1]}
               </span>
             </Fade>
           </div>
           <Fade direction="up">
             <h1 className="text-[6rem] leading-[1] font-semibold text-center">
-              YORIKO
+              {weddingName.split(" ")[2]}
             </h1>
           </Fade>
         </div>
-        <div className="h-[31.25rem] lg:h-full bg-[url('/assets/hero-bg.svg')] bg-cover bg-no-repeat lg:bg-[50%_80%] rounded-tl-full rounded-tr-full flex items-end justify-center p-4 z-20 relative">
+        <div
+          className={`h-[31.25rem] lg:h-full bg-[url('https://sgp1.vultrobjects.com/virtuwed-storage/${img}')] bg-cover bg-no-repeat lg:bg-center rounded-tl-full rounded-tr-full flex items-end justify-center p-4 z-20 relative`}
+        >
           <button className="lg:hidden rounded-[3.125rem] border-2 border-white text-white flex flex-col gap-6 py-4 px-5 items-center text-center animate-bounce">
             <span className="text-2xl font-semibold">
               Our

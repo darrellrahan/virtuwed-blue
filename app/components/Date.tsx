@@ -4,13 +4,13 @@ import React from "react";
 import { Zoom } from "react-awesome-reveal";
 import Marquee from "react-fast-marquee";
 
-function Date() {
+function Date({ date }: { date: string }) {
   return (
     <section id="date">
       <div className="overflow-x-hidden">
         <Marquee className="overflow-hidden">
           <h1 className="text-white text-opacity-20 text-[200px] leading-[1] font-bold lg:font-medium lg:text-[400px] text-center">
-            ~31.10.2023
+            ~{date}
           </h1>
         </Marquee>
         <Zoom>
