@@ -59,11 +59,17 @@ function Bride({
         </Fade>
         <div className="h-full relative lg:flex lg:items-center lg:justify-center">
           <div
-            className={`hidden lg:block absolute inset-0 bg-[url('https://sgp1.vultrobjects.com/virtuwed-storage/${groomImg}')] bg-cover bg-no-repeat bg-center`}
+            style={{
+              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${groomImg}')`,
+            }}
+            className={`hidden lg:block absolute inset-0 bg-cover bg-no-repeat bg-center`}
           ></div>
           <div className="absolute inset-0 bg-black/50 hidden lg:block"></div>
           <div
-            className={`h-[15rem] bg-[url('https://sgp1.vultrobjects.com/virtuwed-storage/${groomImg}')] bg-cover bg-[50%_25%] lg:hidden`}
+            style={{
+              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${groomImg}')`,
+            }}
+            className={`h-[15rem] bg-cover bg-[50%_25%] lg:hidden`}
           ></div>
           <Zoom>
             <div className="py-12 flex flex-col items-center gap-16 font-bold z-10 relative px-16">
@@ -88,11 +94,17 @@ function Bride({
         </div>
         <div className="h-full relative lg:flex lg:items-center lg:justify-center">
           <div
-            className={`hidden lg:block absolute inset-0 bg-[url('https://sgp1.vultrobjects.com/virtuwed-storage/${brideImg}')] bg-cover bg-no-repeat bg-center`}
+            style={{
+              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${brideImg}')`,
+            }}
+            className={`hidden lg:block absolute inset-0 bg-cover bg-no-repeat bg-center`}
           ></div>
           <div className="absolute inset-0 bg-black/50 hidden lg:block"></div>
           <div
-            className={`h-[15rem] bg-[url('https://sgp1.vultrobjects.com/virtuwed-storage/${brideImg}')] bg-cover bg-[50%_25%] lg:hidden`}
+            style={{
+              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${brideImg}')`,
+            }}
+            className={`h-[15rem] bg-cover bg-[50%_25%] lg:hidden`}
           ></div>
           <Zoom>
             <div className="py-12 font-bold space-y-4 text-center z-10 relative px-16">
