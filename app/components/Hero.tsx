@@ -25,7 +25,7 @@ function Hero({ weddingName, img }: { weddingName: string; img: string }) {
             </button>
           </Fade>
         </div>
-        <div className="lg:scale-[1.75] lg:-translate-y-12 z-20 relative">
+        <div className="lg:scale-[1.75] lg:-translate-y-12 z-20 relative mb-8 lg:mb-0">
           <Zoom>
             <h3 className="text-3xl lg:text-2xl lg:font-medium text-center font-semibold">
               Wedding Invitation

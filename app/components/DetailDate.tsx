@@ -4,9 +4,55 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { lovelyCoffee } from "../fonts";
+import Countdown from "react-countdown";
+import Link from "next/link";
 
-function DetailDate() {
+function DetailDate({
+  date,
+  receptionDate,
+  receptionDay,
+  receptionMonth,
+  receptionTimeBegin,
+  receptionTimeEnd,
+  akadDate,
+  akadTime,
+  receptionLink,
+  akadLink,
+}: {
+  date: string;
+  receptionDay: string;
+  receptionDate: string;
+  receptionMonth: string;
+  receptionTimeBegin: string;
+  receptionTimeEnd: string;
+  akadDate: string;
+  akadTime: string;
+  receptionLink: string;
+  akadLink: string;
+}) {
   const [isTabVirtual, setIsTabVirtual] = useState(true);
+
+  function renderer({
+    days,
+    hours,
+    minutes,
+    seconds,
+    completed,
+  }: {
+    days: any;
+    hours: any;
+    minutes: any;
+    seconds: any;
+    completed: any;
+  }) {
+    return completed ? (
+      <span>The event has passed.</span>
+    ) : (
+      <span>
+        {days}:{hours}:{minutes}:{seconds}
+      </span>
+    );
+  }
 
   return (
     <section id="detail-date" className="relative">
@@ -36,7 +82,16 @@ function DetailDate() {
         </Fade>
         <Fade direction="up">
           <h3 className="text-center text-[4.25rem] lg:text-[5rem] leading-[1] font-light mb-16 text-[#84A7A1]">
-            00:00:00:00
+            <Countdown
+              date={
+                new Date(
+                  `${date.split("-")[2]}-${date.split("-")[1]}-${
+                    date.split("-")[0]
+                  }`
+                )
+              }
+              renderer={renderer}
+            />
           </h3>
         </Fade>
         <Fade direction="up">
@@ -72,40 +127,59 @@ function DetailDate() {
         </Fade>
         <Fade direction="up">
           <div className="mb-12 lg:mb-20 lg:flex lg:justify-center lg:gap-16">
-            <div className="space-y-4 font-semibold lg:space-y-8">
+            <div
+              className={`space-y-8 font-semibold ${
+                isTabVirtual ? "hidden" : "block"
+              }`}
+            >
               <h1 className="text-center text-4xl">Akad nikah</h1>
-              <div className="flex lg:flex-col items-center justify-center gap-4 lg:gap-8">
-                <span className="text-xl py-2 border-y lg:text-3xl border-[#DBBB85] lg:font-semibold">
-                  T U E S D A Y
+              <div className="flex flex-col items-center justify-center gap-4 lg:gap-8">
+                <span className="text-xl py-2 border-y lg:text-3xl border-[#DBBB85] lg:font-semibold uppercase tracking-[6px]">
+                  {new Date(akadDate).toLocaleDateString("id-ID", {
+                    weekday: "long",
+                  })}
                 </span>
-                <span className="text-8xl">8</span>
-                <span className="text-xl py-2 border-y lg:text-3xl border-[#DBBB85] lg:font-semibold">
-                  O C T O B E R
+                <span className="text-8xl">{new Date(akadDate).getDate()}</span>
+                <span className="text-xl py-2 border-y lg:text-3xl border-[#DBBB85] lg:font-semibold uppercase tracking-[6px]">
+                  {new Date(akadDate).toLocaleDateString("id-ID", {
+                    month: "long",
+                  })}
                 </span>
               </div>
-              <p className="text-center text-3xl">09:00 - 12:00</p>
+              <p className="text-center text-3xl">
+                {akadTime.split(":")[0]}:{akadTime.split(":")[1]}
+              </p>
             </div>
-            <div className="my-12 h-[2px] lg:w-[1.5px] lg:h-[405px] lg:my-0 bg-[#84A7A1]" />
-            <div className="space-y-4 font-semibold lg:space-y-8">
+            <div
+              className={`my-12 h-[2px] lg:w-[1.5px] lg:h-[405px] lg:my-0 bg-[#84A7A1] ${
+                isTabVirtual ? "hidden" : "block"
+              }`}
+            />
+            <div className="font-semibold space-y-8">
               <h1 className="text-center text-4xl">Resepsi</h1>
-              <div className="flex lg:flex-col items-center justify-center gap-4 lg:gap-8">
-                <span className="text-xl py-2 border-y lg:text-3xl border-[#DBBB85] lg:font-semibold">
-                  T U E S D A Y
+              <div className="flex flex-col items-center justify-center gap-4 lg:gap-8">
+                <span className="text-xl py-2 border-y lg:text-3xl border-[#DBBB85] lg:font-semibold uppercase tracking-[6px]">
+                  {receptionDay}
                 </span>
-                <span className="text-8xl">8</span>
-                <span className="text-xl py-2 border-y lg:text-3xl border-[#DBBB85] lg:font-semibold">
-                  O C T O B E R
+                <span className="text-8xl">{receptionDate.split("-")[0]}</span>
+                <span className="text-xl py-2 border-y lg:text-3xl border-[#DBBB85] lg:font-semibold uppercase tracking-[6px]">
+                  {receptionMonth}
                 </span>
               </div>
-              <p className="text-center text-3xl">16:00 - 21:00</p>
+              <p className="text-center text-3xl">
+                {receptionTimeBegin} - {receptionTimeEnd}
+              </p>
             </div>
           </div>
         </Fade>
         <Fade direction="up">
           <div className="flex justify-center">
-            <button className="rounded-md border-2 border-[#D5AF6F] bg-[#D5AF6F] text-[#003C4C] py-3 px-6 text-2xl font-bold">
+            <Link
+              href={isTabVirtual ? receptionLink : akadLink}
+              className="rounded-md border-2 border-[#D5AF6F] bg-[#D5AF6F] text-[#003C4C] py-3 px-6 text-2xl font-bold"
+            >
               {isTabVirtual ? "Hadiri Resepsi" : "View Maps"}
-            </button>
+            </Link>
           </div>
         </Fade>
       </div>

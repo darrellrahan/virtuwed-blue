@@ -1,15 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Zoom } from "react-awesome-reveal";
 import { lovelyCoffee } from "../fonts";
 
-function Opening() {
+function Opening({ weddingName, img }: { weddingName: string; img: string }) {
+  const [className, setClassName] = useState("bottom-0");
+
+  useEffect(() => {
+    document.body.style.overflowY = "hidden";
+  }, []);
+
   return (
     <section id="opening">
-      <div className="h-screen lg:grid lg:grid-cols-2 overflow-hidden relative">
+      <div
+        className={`fixed inset-x-0 top-0 ${className} lg:grid lg:grid-cols-2 overflow-hidden z-50 duration-[0.75s] ease-linear bg-[#003C4C]`}
+      >
         <div className="hidden lg:block absolute inset-0 bg-[url('/assets/opening-tree.svg')] bg-cover bg-no-repeat"></div>
         <div className="hidden lg:block absolute inset-0 bg-[linear-gradient(180deg,_rgba(0,60,76,0.88)_0%,rgba(0,60,76,0.88)_51.47%,#003C4C_100%)]"></div>
         <Image
@@ -21,21 +28,23 @@ function Opening() {
         />
         <div className="h-[67.5%] lg:h-full relative pt-16 px-6">
           <div className="z-30 relative lg:hidden">
-            <h3 className="text-3xl text-center font-semibold text-[#003C4C]">
+            <h3 className="text-3xl text-center font-semibold text-[#D5AF6F]">
               We Invite you to
               <br />
               wedding celebration
             </h3>
-            <div className="flex gap-8 items-end text-[#D5AF6F]">
-              <h1 className="text-[6rem] leading-[1] font-semibold">AGY</h1>
+            <div className="flex gap-8 items-end text-[#D5AF6F] mb-4">
+              <h1 className="text-[6rem] leading-[1] font-semibold">
+                {weddingName.split(" ")[0]}
+              </h1>
               <span
                 className={`text-[7.5rem] leading-[1] ${lovelyCoffee.className}`}
               >
-                and
+                {weddingName.split(" ")[1]}
               </span>
             </div>
             <h1 className="text-[#D5AF6F] text-[6rem] leading-[1] font-semibold text-center mb-8 -translate-x-3">
-              YORIKO
+              {weddingName.split(" ")[2]}
             </h1>
           </div>
           <Image
@@ -45,8 +54,13 @@ function Opening() {
             height={500}
             className="absolute -bottom-24 -right-4 lg:-bottom-32 lg:-right-8"
           />
-          <div className="absolute z-10 inset-0 bg-[url('/assets/opening-bride.svg')] bg-left lg:bg-bottom bg-cover bg-no-repeat rounded-bl-[50px] lg:rounded-bl-none rounded-br-[270px]"></div>
-          <div className="absolute z-20 inset-0 bg-black/30 lg:bg-black/0 rounded-bl-[50px] lg:rounded-bl-none rounded-br-[270px]"></div>
+          <div
+            style={{
+              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${img}')`,
+            }}
+            className="absolute z-10 inset-0 bg-left lg:bg-center bg-cover bg-no-repeat rounded-bl-[50px] lg:rounded-bl-none rounded-br-[270px]"
+          ></div>
+          <div className="absolute z-20 inset-0 bg-black/75 lg:bg-black/0 rounded-bl-[50px] lg:rounded-bl-none rounded-br-[270px]"></div>
         </div>
         <div className="h-[32.5%] lg:h-full flex items-center lg:flex-col lg:justify-between px-6 lg:px-32 lg:py-16 z-30 relative">
           <Zoom>
@@ -56,8 +70,10 @@ function Opening() {
                 <br />
                 wedding celebration
               </h3>
-              <div className="flex gap-8 items-end">
-                <h1 className="text-[6rem] leading-[1] font-semibold">AGY</h1>
+              <div className="flex gap-8 items-end mb-4">
+                <h1 className="text-[6rem] leading-[1] font-semibold">
+                  {weddingName.split(" ")[0]}
+                </h1>
                 <span
                   className={`text-[7.5rem] leading-[1] ${lovelyCoffee.className}`}
                 >
@@ -65,7 +81,7 @@ function Opening() {
                 </span>
               </div>
               <h1 className="text-[6rem] leading-[1] font-semibold text-center mb-8 -translate-x-3">
-                YORIKO
+                {weddingName.split(" ")[2]}
               </h1>
             </div>
           </Zoom>
@@ -75,12 +91,15 @@ function Opening() {
                 Hadiri Resepsi
               </button>
               <div className="grid grid-cols-2 gap-4">
-                <Link
-                  href="/undangan"
+                <button
+                  onClick={() => {
+                    setClassName("bottom-[100%]");
+                    document.body.style.overflowY = "auto";
+                  }}
                   className="rounded-md text-center border-2 border-[#84A7A1] text-[#84A7A1] py-3"
                 >
                   Undangan
-                </Link>
+                </button>
                 <button className="rounded-md border-2 border-[#84A7A1] text-[#84A7A1] py-3">
                   Gallery
                 </button>

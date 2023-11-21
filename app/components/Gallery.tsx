@@ -1,6 +1,5 @@
 "use client";
 
-import { Play } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import React from "react";
 import { Fade } from "react-awesome-reveal";
@@ -25,13 +24,14 @@ function Gallery() {
           </h1>
         </Fade>
         <Fade direction="up">
-          <video
+          <iframe
+            width="1000"
+            height="1000"
+            src="https://www.youtube.com/embed/_5Gg2rFJ6Q0?si=CT8TBTcliXQIaQnp"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
             className="h-[250px] lg:w-[900px] lg:mx-auto lg:h-[550px]"
-            poster="/assets/video-thumbnail.svg"
-            controls
-          >
-            <source src="/assets/video.mp4" type="video/mp4" />
-          </video>
+          ></iframe>
         </Fade>
       </div>
     </section>
