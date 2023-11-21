@@ -3,9 +3,14 @@
 import { ArrowDown } from "@phosphor-icons/react/dist/ssr";
 import React from "react";
 import { Fade, Zoom } from "react-awesome-reveal";
+import { useDataContext } from "../context";
 import { lovelyCoffee } from "../fonts";
 
-function Hero({ weddingName, img }: { weddingName: string; img: string }) {
+function Hero() {
+  const { data } = useDataContext();
+
+  if (!data) return null;
+
   return (
     <section id="hero">
       <div className="lg:h-screen lg:overflow-hidden px-6 pt-16 mb-12 text-[#D5AF6F] bg-[url('/assets/hero-accent-bg.svg')] lg:bg-none bg-cover bg-no-repeat lg:px-16 lg:grid lg:grid-cols-2 lg:gap-48 lg:items-center relative">
@@ -34,26 +39,26 @@ function Hero({ weddingName, img }: { weddingName: string; img: string }) {
           <div className="flex gap-8 lg:justify-center items-end">
             <Fade direction="left">
               <h1 className="text-[6rem] leading-[1] font-semibold">
-                {weddingName.split(" ")[0]}
+                {data.data.wedding.wedding_name.split(" ")[0]}
               </h1>
             </Fade>
             <Fade direction="right">
               <span
                 className={`text-[7.5rem] leading-[1] ${lovelyCoffee.className}`}
               >
-                {weddingName.split(" ")[1]}
+                &
               </span>
             </Fade>
           </div>
           <Fade direction="up">
             <h1 className="text-[6rem] leading-[1] font-semibold text-center">
-              {weddingName.split(" ")[2]}
+              {data.data.wedding.wedding_name.split(" ")[2]}
             </h1>
           </Fade>
         </div>
         <div
           style={{
-            backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${img}')`,
+            backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${data.data.wedding.undangan_digital.cover_undangan_digital}')`,
           }}
           className={`h-[31.25rem] lg:h-full bg-cover bg-no-repeat lg:bg-center rounded-tl-full rounded-tr-full flex items-end justify-center p-4 z-20 relative`}
         >

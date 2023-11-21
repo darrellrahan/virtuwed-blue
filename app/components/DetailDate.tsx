@@ -6,31 +6,13 @@ import { Fade } from "react-awesome-reveal";
 import { lovelyCoffee } from "../fonts";
 import Countdown from "react-countdown";
 import Link from "next/link";
+import { useDataContext } from "../context";
 
-function DetailDate({
-  date,
-  receptionDate,
-  receptionDay,
-  receptionMonth,
-  receptionTimeBegin,
-  receptionTimeEnd,
-  akadDate,
-  akadTime,
-  receptionLink,
-  akadLink,
-}: {
-  date: string;
-  receptionDay: string;
-  receptionDate: string;
-  receptionMonth: string;
-  receptionTimeBegin: string;
-  receptionTimeEnd: string;
-  akadDate: string;
-  akadTime: string;
-  receptionLink: string;
-  akadLink: string;
-}) {
+function DetailDate() {
+  const { data } = useDataContext();
   const [isTabVirtual, setIsTabVirtual] = useState(true);
+
+  if (!data) return null;
 
   function renderer({
     days,
@@ -85,9 +67,9 @@ function DetailDate({
             <Countdown
               date={
                 new Date(
-                  `${date.split("-")[2]}-${date.split("-")[1]}-${
-                    date.split("-")[0]
-                  }`
+                  `${data.data.wedding.reception_begin_at.date.split("-")[2]}-${
+                    data.data.wedding.reception_begin_at.date.split("-")[1]
+                  }-${data.data.wedding.reception_begin_at.date.split("-")[0]}`
                 )
               }
               renderer={renderer}
@@ -135,19 +117,37 @@ function DetailDate({
               <h1 className="text-center text-4xl">Akad nikah</h1>
               <div className="flex flex-col items-center justify-center gap-4 lg:gap-8">
                 <span className="text-xl py-2 border-y lg:text-3xl border-[#DBBB85] lg:font-semibold uppercase tracking-[6px]">
-                  {new Date(akadDate).toLocaleDateString("id-ID", {
+                  {new Date(
+                    data.data.wedding.undangan_digital.daftar_acara[0].event_date
+                  ).toLocaleDateString("id-ID", {
                     weekday: "long",
                   })}
                 </span>
-                <span className="text-8xl">{new Date(akadDate).getDate()}</span>
+                <span className="text-8xl">
+                  {new Date(
+                    data.data.wedding.undangan_digital.daftar_acara[0].event_date
+                  ).getDate()}
+                </span>
                 <span className="text-xl py-2 border-y lg:text-3xl border-[#DBBB85] lg:font-semibold uppercase tracking-[6px]">
-                  {new Date(akadDate).toLocaleDateString("id-ID", {
+                  {new Date(
+                    data.data.wedding.undangan_digital.daftar_acara[0].event_date
+                  ).toLocaleDateString("id-ID", {
                     month: "long",
                   })}
                 </span>
               </div>
               <p className="text-center text-3xl">
-                {akadTime.split(":")[0]}:{akadTime.split(":")[1]}
+                {
+                  data.data.wedding.undangan_digital.daftar_acara[0].event_time.split(
+                    ":"
+                  )[0]
+                }
+                :
+                {
+                  data.data.wedding.undangan_digital.daftar_acara[0].event_time.split(
+                    ":"
+                  )[1]
+                }
               </p>
             </div>
             <div
@@ -159,15 +159,18 @@ function DetailDate({
               <h1 className="text-center text-4xl">Resepsi</h1>
               <div className="flex flex-col items-center justify-center gap-4 lg:gap-8">
                 <span className="text-xl py-2 border-y lg:text-3xl border-[#DBBB85] lg:font-semibold uppercase tracking-[6px]">
-                  {receptionDay}
+                  {data.data.wedding.reception_begin_at.day}
                 </span>
-                <span className="text-8xl">{receptionDate.split("-")[0]}</span>
+                <span className="text-8xl">
+                  {data.data.wedding.reception_begin_at.date.split("-")[0]}
+                </span>
                 <span className="text-xl py-2 border-y lg:text-3xl border-[#DBBB85] lg:font-semibold uppercase tracking-[6px]">
-                  {receptionMonth}
+                  {data.data.wedding.reception_begin_at.month}
                 </span>
               </div>
               <p className="text-center text-3xl">
-                {receptionTimeBegin} - {receptionTimeEnd}
+                {data.data.wedding.reception_begin_at.time} -{" "}
+                {data.data.wedding.reception_end_at.time}
               </p>
             </div>
           </div>
@@ -175,7 +178,13 @@ function DetailDate({
         <Fade direction="up">
           <div className="flex justify-center">
             <Link
-              href={isTabVirtual ? receptionLink : akadLink}
+              href={
+                isTabVirtual
+                  ? data.data.wedding.resepsi_virtual
+                      .wedding_live_streaming_link.full_url
+                  : data.data.wedding.undangan_digital
+                      .reception_location_maps_url
+              }
               className="rounded-md border-2 border-[#D5AF6F] bg-[#D5AF6F] text-[#003C4C] py-3 px-6 text-2xl font-bold"
             >
               {isTabVirtual ? "Hadiri Resepsi" : "View Maps"}

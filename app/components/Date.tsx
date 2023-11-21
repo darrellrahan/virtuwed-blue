@@ -3,14 +3,19 @@
 import React from "react";
 import { Zoom } from "react-awesome-reveal";
 import Marquee from "react-fast-marquee";
+import { useDataContext } from "../context";
 
-function Date({ date }: { date: string }) {
+function Date() {
+  const { data } = useDataContext();
+
+  if (!data) return null;
+
   return (
     <section id="date">
       <div className="overflow-x-hidden">
         <Marquee className="overflow-hidden">
           <h1 className="text-white text-opacity-20 text-[200px] leading-[1] font-bold lg:font-medium lg:text-[400px] text-center">
-            ~{date}
+            ~{data.data.wedding.reception_begin_at.date}
           </h1>
         </Marquee>
         <Zoom>

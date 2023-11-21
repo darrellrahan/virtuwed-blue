@@ -3,8 +3,13 @@
 import Image from "next/image";
 import React from "react";
 import { Zoom } from "react-awesome-reveal";
+import { useDataContext } from "../context";
 
 function Footer() {
+  const { data } = useDataContext();
+
+  if (!data) return null;
+
   return (
     <section id="footer">
       <div className="h-screen flex items-center justify-center relative overflow-hidden">

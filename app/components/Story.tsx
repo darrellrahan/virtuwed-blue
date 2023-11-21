@@ -4,9 +4,12 @@ import { ArrowLeft, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import React, { useState } from "react";
 import { Fade } from "react-awesome-reveal";
+import { useDataContext } from "../context";
 import { lovelyCoffee } from "../fonts";
 
 function Story() {
+  const { data } = useDataContext();
+
   const CAROUSEL_DATA = [
     {
       img: "bg-[url('/assets/story-1.svg')]",
@@ -27,6 +30,8 @@ function Story() {
   function prevSlide() {
     setCarouselIndex(carouselIndex === 0 ? 2 : carouselIndex - 1);
   }
+
+  if (!data) return null;
 
   return (
     <section id="story">

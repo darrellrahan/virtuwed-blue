@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { DataProvider } from "./context";
 import { benton } from "./fonts";
 import "./globals.css";
 
@@ -13,10 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${benton.className} bg-[#003C4C] overflow-x-hidden`}>
-        {children}
-      </body>
-    </html>
+    <DataProvider>
+      <html lang="en">
+        <body className={`${benton.className} bg-[#003C4C] overflow-x-hidden`}>
+          {children}
+        </body>
+      </html>
+    </DataProvider>
   );
 }

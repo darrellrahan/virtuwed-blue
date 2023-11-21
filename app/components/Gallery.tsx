@@ -3,9 +3,14 @@
 import Image from "next/image";
 import React from "react";
 import { Fade } from "react-awesome-reveal";
+import { useDataContext } from "../context";
 import { lovelyCoffee } from "../fonts";
 
 function Gallery() {
+  const { data } = useDataContext();
+
+  if (!data) return null;
+
   return (
     <section id="gallery">
       <div className="relative my-8">
@@ -27,7 +32,7 @@ function Gallery() {
           <iframe
             width="1000"
             height="1000"
-            src="https://www.youtube.com/embed/_5Gg2rFJ6Q0?si=CT8TBTcliXQIaQnp"
+            src={data.data.wedding.media.prewedding_videos[0]}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             className="h-[250px] lg:w-[900px] lg:mx-auto lg:h-[550px]"

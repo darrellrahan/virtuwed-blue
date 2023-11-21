@@ -4,30 +4,13 @@ import { InstagramLogo } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import React from "react";
 import { Fade, Zoom } from "react-awesome-reveal";
+import { useDataContext } from "../context";
 
-function Bride({
-  groomImg,
-  groomName,
-  groomIg,
-  groomDad,
-  groomMom,
-  brideImg,
-  brideName,
-  brideIg,
-  brideDad,
-  brideMom,
-}: {
-  groomImg: string;
-  groomName: string;
-  groomIg: string;
-  groomDad: string;
-  groomMom: string;
-  brideImg: string;
-  brideName: string;
-  brideIg: string;
-  brideDad: string;
-  brideMom: string;
-}) {
+function Bride() {
+  const { data } = useDataContext();
+
+  if (!data) return null;
+
   return (
     <section id="bride" className="relative">
       <div className="absolute inset-0 bg-[url('/assets/bride-bg.svg')] bg-cover"></div>
@@ -40,9 +23,11 @@ function Bride({
           <span className="text-[#D5AF6F] text-3xl font-semibold">
             Putra dari
             <br />
-            Bapak {groomDad}
+            Bapak{" "}
+            {data.data.wedding.undangan_digital.pengantin_pria.nama_ortu_bapak}
             <br />
-            Ibu {groomMom}
+            Ibu{" "}
+            {data.data.wedding.undangan_digital.pengantin_pria.nama_ortu_ibu}
           </span>
         </Fade>
         <Fade
@@ -52,22 +37,27 @@ function Bride({
           <span className="text-[#D5AF6F] text-3xl font-semibold">
             Putri dari
             <br />
-            Bapak {brideDad}
+            Bapak{" "}
+            {
+              data.data.wedding.undangan_digital.pengantin_wanita
+                .nama_ortu_bapak
+            }
             <br />
-            Ibu {brideMom}
+            Ibu{" "}
+            {data.data.wedding.undangan_digital.pengantin_wanita.nama_ortu_ibu}
           </span>
         </Fade>
         <div className="h-full relative lg:flex lg:items-center lg:justify-center">
           <div
             style={{
-              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${groomImg}')`,
+              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${data.data.wedding.undangan_digital.pengantin_pria.foto}')`,
             }}
             className={`hidden lg:block absolute inset-0 bg-cover bg-no-repeat bg-center`}
           ></div>
           <div className="absolute inset-0 bg-black/50 hidden lg:block"></div>
           <div
             style={{
-              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${groomImg}')`,
+              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${data.data.wedding.undangan_digital.pengantin_pria.foto}')`,
             }}
             className={`h-[15rem] bg-cover bg-[50%_25%] lg:hidden`}
           ></div>
@@ -75,17 +65,34 @@ function Bride({
             <div className="py-12 flex flex-col items-center gap-16 font-bold z-10 relative px-16">
               <div className="space-y-4 text-center">
                 <h1 className="text-4xl lg:text-5xl leading-[1.25]">
-                  {groomName}
+                  {
+                    data.data.wedding.undangan_digital.pengantin_pria
+                      .nama_lengkap
+                  }
                 </h1>
                 <h3 className="text-2xl lg:hidden">
-                  Putra dari Bapak {brideDad} dan Ibu {brideMom}
+                  Putra dari Bapak{" "}
+                  {
+                    data.data.wedding.undangan_digital.pengantin_wanita
+                      .nama_ortu_bapak
+                  }{" "}
+                  dan Ibu{" "}
+                  {
+                    data.data.wedding.undangan_digital.pengantin_wanita
+                      .nama_ortu_ibu
+                  }
                 </h3>
                 <Link
-                  href={`https://www.instagram.com/${groomIg}`}
+                  href={`https://www.instagram.com/${data.data.wedding.undangan_digital.pengantin_pria.instagram}`}
                   className="flex items-center justify-center gap-2"
                 >
                   <InstagramLogo size={32} />
-                  <span className="text-2xl lg:font-normal">{groomIg}</span>
+                  <span className="text-2xl lg:font-normal">
+                    {
+                      data.data.wedding.undangan_digital.pengantin_pria
+                        .instagram
+                    }
+                  </span>
                 </Link>
               </div>
               <span className="text-8xl lg:hidden">&</span>
@@ -95,29 +102,48 @@ function Bride({
         <div className="h-full relative lg:flex lg:items-center lg:justify-center">
           <div
             style={{
-              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${brideImg}')`,
+              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${data.data.wedding.undangan_digital.pengantin_wanita.foto}')`,
             }}
             className={`hidden lg:block absolute inset-0 bg-cover bg-no-repeat bg-center`}
           ></div>
           <div className="absolute inset-0 bg-black/50 hidden lg:block"></div>
           <div
             style={{
-              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${brideImg}')`,
+              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${data.data.wedding.undangan_digital.pengantin_wanita.foto}')`,
             }}
             className={`h-[15rem] bg-cover bg-[50%_25%] lg:hidden`}
           ></div>
           <Zoom>
             <div className="py-12 font-bold space-y-4 text-center z-10 relative px-16">
-              <h1 className="text-4xl lg:text-5xl">{brideName}</h1>
+              <h1 className="text-4xl lg:text-5xl">
+                {
+                  data.data.wedding.undangan_digital.pengantin_wanita
+                    .nama_lengkap
+                }
+              </h1>
               <h3 className="text-2xl lg:hidden">
-                Putri dari Bapak {brideDad} dan Ibu {brideMom}
+                Putri dari Bapak{" "}
+                {
+                  data.data.wedding.undangan_digital.pengantin_wanita
+                    .nama_ortu_bapak
+                }{" "}
+                dan Ibu{" "}
+                {
+                  data.data.wedding.undangan_digital.pengantin_wanita
+                    .nama_ortu_ibu
+                }
               </h3>
               <Link
-                href={`https://www.instagram.com/${brideIg}`}
+                href={`https://www.instagram.com/${data.data.wedding.undangan_digital.pengantin_wanita.instagram}`}
                 className="flex items-center justify-center gap-2"
               >
                 <InstagramLogo size={32} />
-                <span className="text-2xl lg:font-normal">{brideIg}</span>
+                <span className="text-2xl lg:font-normal">
+                  {
+                    data.data.wedding.undangan_digital.pengantin_wanita
+                      .instagram
+                  }
+                </span>
               </Link>
             </div>
           </Zoom>

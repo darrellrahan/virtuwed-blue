@@ -3,14 +3,18 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { Zoom } from "react-awesome-reveal";
+import { useDataContext } from "../context";
 import { lovelyCoffee } from "../fonts";
 
-function Opening({ weddingName, img }: { weddingName: string; img: string }) {
+function Opening() {
+  const { data } = useDataContext();
   const [className, setClassName] = useState("bottom-0");
 
   useEffect(() => {
     document.body.style.overflowY = "hidden";
   }, []);
+
+  if (!data) return null;
 
   return (
     <section id="opening">
@@ -35,16 +39,16 @@ function Opening({ weddingName, img }: { weddingName: string; img: string }) {
             </h3>
             <div className="flex gap-8 items-end text-[#D5AF6F] mb-4">
               <h1 className="text-[6rem] leading-[1] font-semibold">
-                {weddingName.split(" ")[0]}
+                {data.data.wedding.wedding_name.split(" ")[0]}
               </h1>
               <span
                 className={`text-[7.5rem] leading-[1] ${lovelyCoffee.className}`}
               >
-                {weddingName.split(" ")[1]}
+                {data.data.wedding.wedding_name.split(" ")[1]}
               </span>
             </div>
             <h1 className="text-[#D5AF6F] text-[6rem] leading-[1] font-semibold text-center mb-8 -translate-x-3">
-              {weddingName.split(" ")[2]}
+              {data.data.wedding.wedding_name.split(" ")[2]}
             </h1>
           </div>
           <Image
@@ -56,7 +60,7 @@ function Opening({ weddingName, img }: { weddingName: string; img: string }) {
           />
           <div
             style={{
-              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${img}')`,
+              backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${data.data.wedding.undangan_digital.cover_undangan_digital}')`,
             }}
             className="absolute z-10 inset-0 bg-left lg:bg-center bg-cover bg-no-repeat rounded-bl-[50px] lg:rounded-bl-none rounded-br-[270px]"
           ></div>
@@ -72,7 +76,7 @@ function Opening({ weddingName, img }: { weddingName: string; img: string }) {
               </h3>
               <div className="flex gap-8 items-end mb-4">
                 <h1 className="text-[6rem] leading-[1] font-semibold">
-                  {weddingName.split(" ")[0]}
+                  {data.data.wedding.wedding_name.split(" ")[0]}
                 </h1>
                 <span
                   className={`text-[7.5rem] leading-[1] ${lovelyCoffee.className}`}
@@ -81,7 +85,7 @@ function Opening({ weddingName, img }: { weddingName: string; img: string }) {
                 </span>
               </div>
               <h1 className="text-[6rem] leading-[1] font-semibold text-center mb-8 -translate-x-3">
-                {weddingName.split(" ")[2]}
+                {data.data.wedding.wedding_name.split(" ")[2]}
               </h1>
             </div>
           </Zoom>
