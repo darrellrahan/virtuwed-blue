@@ -12,6 +12,7 @@ function Story() {
   const maxIndex = data.data.wedding.undangan_digital.kisah_cinta.length - 1;
 
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [indexDesktop, setIndexDesktop] = useState(0);
   const [prevBtn, setPrevBtn] = useState({
     year: data.data.wedding.undangan_digital.kisah_cinta[
       maxIndex
@@ -49,11 +50,13 @@ function Story() {
 
   return (
     <section id="story">
-      <div className="bg-white text-[#003C4C] py-12">
-        <h1 className={`${lovelyCoffee.className} text-center text-8xl mb-12`}>
+      <div className="bg-white text-[#003C4C] py-12 lg:px-12 lg:ml-48">
+        <h1
+          className={`${lovelyCoffee.className} text-center lg:text-left text-8xl mb-12`}
+        >
           Love Stories
         </h1>
-        <div className="relative h-[750px] flex items-center overflow-hidden">
+        <div className="lg:hidden relative h-[750px] flex items-center overflow-hidden">
           <button
             className="absolute top-0 left-0 text-center text-black z-10"
             onClick={prevSlide}
@@ -85,7 +88,7 @@ function Story() {
               return (
                 <div
                   key={item.kisah_cinta_judul}
-                  className={`absolute inset-0 duration-300 ease-linear ${className}`}
+                  className={`absolute inset-0 duration-[0.5s] ease-linear ${className}`}
                 >
                   <div className="flex flex-col gap-4 items-center">
                     <h1 className="text-6xl font-semibold text-black">
@@ -98,6 +101,34 @@ function Story() {
                     </p>
                   </div>
                 </div>
+              );
+            }
+          )}
+        </div>
+        <div className="flex flex-col gap-8 relative">
+          <p className="absolute left-[24rem] top-0 right-12 bottom-12 text-2xl font-semibold">
+            {
+              data.data.wedding.undangan_digital.kisah_cinta[indexDesktop]
+                .kisah_cinta_cerita
+            }
+          </p>
+          {data.data.wedding.undangan_digital.kisah_cinta.map(
+            (data: any, index: number) => {
+              return (
+                <button
+                  onClick={() => setIndexDesktop(index)}
+                  className="flex gap-4 items-center text-black"
+                >
+                  <span className="text-4xl font-semibold">
+                    {data.kisah_cinta_date.split("-")[0]}
+                  </span>
+                  <span
+                    className={`${
+                      index === indexDesktop ? "w-[200px]" : "w-0"
+                    } h-[1.5px] bg-black duration-300 ease-linear`}
+                  ></span>
+                  <span className="font-semibold">#{index + 1}</span>
+                </button>
               );
             }
           )}

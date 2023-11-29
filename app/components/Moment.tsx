@@ -1,16 +1,38 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { useDataContext } from "../context";
 import { lovelyCoffee } from "../fonts";
 
 function Moment() {
   const { data } = useDataContext();
+  if (!data) return null;
+
+  const maxIndex = data.data.wedding.media.prewedding_photos.length - 1;
+
+  const [carouselIndex, setCarouselIndex] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  if (!data) return null;
+  function nextSlide() {
+    setCarouselIndex(carouselIndex === maxIndex ? 0 : carouselIndex + 1);
+    const slider = sliderRef.current;
+    slider!.scrollLeft = slider!.scrollLeft + 250;
+  }
+  function prevSlide() {
+    setCarouselIndex(carouselIndex === 0 ? maxIndex : carouselIndex - 1);
+    const slider = sliderRef.current;
+    slider!.scrollLeft = slider!.scrollLeft - 250;
+  }
+
+  useEffect(() => {
+    const id = setInterval(nextSlide, 5000);
+
+    return () => {
+      clearInterval(id);
+    };
+  }, [carouselIndex]);
 
   return (
     <section id="story">
@@ -25,28 +47,45 @@ function Moment() {
           </Fade>
           <Fade direction="right">
             <div className="flex justify-between lg:gap-8">
-              <button
-                onClick={() => {
-                  const slider = sliderRef.current;
-                  slider!.scrollLeft = slider!.scrollLeft - 250;
-                }}
-              >
+              <button onClick={prevSlide}>
                 <ArrowLeft size={36} weight="bold" />
               </button>
-              <button
-                onClick={() => {
-                  const slider = sliderRef.current;
-                  slider!.scrollLeft = slider!.scrollLeft + 250;
-                }}
-              >
+              <button onClick={nextSlide}>
                 <ArrowRight size={36} weight="bold" />
               </button>
             </div>
           </Fade>
         </div>
+        <div className="flex items-center relative overflow-hidden h-[370px] mx-6 lg:hidden">
+          {data.data.wedding.media.prewedding_photos.map(
+            (data: any, index: any) => {
+              let className = "translate-x-full opacity-0";
+
+              if (index === carouselIndex) {
+                className = "translate-x-0 opacity-100";
+              }
+              if (
+                index === carouselIndex - 1 ||
+                (index === maxIndex && carouselIndex === 0)
+              ) {
+                className = "-translate-x-full opacity-0";
+              }
+
+              return (
+                <div
+                  style={{
+                    backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${data}')`,
+                  }}
+                  key={data}
+                  className={`${className} absolute inset-0 duration-300 ease-linear mx-auto bg-cover bg-center rounded-[15px]`}
+                ></div>
+              );
+            }
+          )}
+        </div>
         <div
           ref={sliderRef}
-          className="flex gap-8 overflow-x-auto scroll-smooth px-6 lg:px-16"
+          className="gap-8 h-[470px] scroll-smooth hidden lg:flex overflow-x-auto"
         >
           {data.data.wedding.media.prewedding_photos.map((data: any) => {
             return (
@@ -55,7 +94,7 @@ function Moment() {
                   backgroundImage: `url('https://sgp1.vultrobjects.com/virtuwed-storage/${data}')`,
                 }}
                 key={data}
-                className={`flex-none w-[270px] h-[370px] lg:w-[370px] lg:h-[470px] bg-cover bg-center rounded-[15px]`}
+                className="flex-none h-full w-[370px] bg-cover bg-center rounded-[15px]"
               ></div>
             );
           })}
