@@ -6,7 +6,7 @@ import { Fade } from "react-awesome-reveal";
 import { useDataContext } from "../context";
 import { lovelyCoffee } from "../fonts";
 
-function Story() {
+function Moment() {
   const { data } = useDataContext();
   const sliderRef = useRef<HTMLDivElement>(null);
 
@@ -65,4 +65,4 @@ function Story() {
   );
 }
 
-export default Story;
+export default Moment;

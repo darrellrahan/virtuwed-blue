@@ -7,6 +7,7 @@ import Gallery from "./components/Gallery";
 import Wish from "./components/Wish";
 import Footer from "./components/Footer";
 import Opening from "./components/Opening";
+import Story from "./components/Story";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Bride />
       <DetailDate />
       <Moment />
+      <Story />
       <Gallery />
       <Wish />
       <Footer />
