@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useDataContext } from "../context";
 import { lovelyCoffee } from "../fonts";
@@ -49,8 +50,15 @@ function Story() {
   }, [carouselIndex]);
 
   return (
-    <section id="story">
-      <div className="bg-white text-[#003C4C] py-12 lg:px-12 lg:ml-48">
+    <section id="story" className="relative">
+      <Image
+        src="/assets/moments-accent.svg"
+        alt="accent"
+        width={500}
+        height={500}
+        className="absolute -bottom-60 hidden lg:inline-block"
+      />
+      <div className="bg-white text-[#003C4C] py-12 lg:px-12 mb-24 lg:mb-48 lg:ml-48 z-10 relative">
         <h1
           className={`${lovelyCoffee.className} text-center lg:text-left text-8xl mb-12`}
         >
@@ -105,7 +113,7 @@ function Story() {
             }
           )}
         </div>
-        <div className="flex flex-col gap-8 relative">
+        <div className="flex-col gap-8 relative hidden lg:flex">
           <p className="absolute left-[24rem] top-0 right-12 bottom-12 text-2xl font-semibold">
             {
               data.data.wedding.undangan_digital.kisah_cinta[indexDesktop]
@@ -119,7 +127,11 @@ function Story() {
                   onClick={() => setIndexDesktop(index)}
                   className="flex gap-4 items-center text-black"
                 >
-                  <span className="text-4xl font-semibold">
+                  <span
+                    className={`${
+                      index === indexDesktop ? "text-5xl" : "text-4xl"
+                    } font-semibold`}
+                  >
                     {data.kisah_cinta_date.split("-")[0]}
                   </span>
                   <span
@@ -127,7 +139,13 @@ function Story() {
                       index === indexDesktop ? "w-[200px]" : "w-0"
                     } h-[1.5px] bg-black duration-300 ease-linear`}
                   ></span>
-                  <span className="font-semibold">#{index + 1}</span>
+                  <span
+                    className={`font-semibold ${
+                      index === indexDesktop ? "text-2xl" : "text-base"
+                    }`}
+                  >
+                    #{index + 1}
+                  </span>
                 </button>
               );
             }

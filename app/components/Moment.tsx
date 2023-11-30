@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
+import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { useDataContext } from "../context";
@@ -17,8 +18,6 @@ function Moment() {
 
   function nextSlide() {
     setCarouselIndex(carouselIndex === maxIndex ? 0 : carouselIndex + 1);
-    const slider = sliderRef.current;
-    slider!.scrollLeft = slider!.scrollLeft + 250;
   }
   function prevSlide() {
     setCarouselIndex(carouselIndex === 0 ? maxIndex : carouselIndex - 1);
@@ -34,9 +33,21 @@ function Moment() {
     };
   }, [carouselIndex]);
 
+  useEffect(() => {
+    const slider = sliderRef.current;
+    slider!.scrollLeft = slider!.scrollLeft + 250;
+  }, []);
+
   return (
     <section id="story">
-      <div className="py-24 text-[#D5AF6F]">
+      <div className="pb-48 relative pt-24 text-[#D5AF6F]">
+        <Image
+          src="/assets/moments-accent.svg"
+          alt="accent"
+          width={500}
+          height={500}
+          className="absolute -bottom-36 lg:-bottom-60"
+        />
         <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-0 lg:items-center mb-16 px-6 lg:px-16">
           <Fade direction="left">
             <h1
@@ -50,7 +61,13 @@ function Moment() {
               <button onClick={prevSlide}>
                 <ArrowLeft size={36} weight="bold" />
               </button>
-              <button onClick={nextSlide}>
+              <button
+                onClick={() => {
+                  nextSlide();
+                  const slider = sliderRef.current;
+                  slider!.scrollLeft = slider!.scrollLeft + 250;
+                }}
+              >
                 <ArrowRight size={36} weight="bold" />
               </button>
             </div>
