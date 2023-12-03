@@ -35,7 +35,7 @@ function Gallery() {
             src={data.data.wedding.media.prewedding_videos[0]}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
-            className="h-[250px] lg:w-[900px] lg:mx-auto lg:h-[550px]"
+            className="h-[250px] lg:w-[900px] lg:mx-auto lg:h-[550px] w-full overflow-hidden"
           ></iframe>
         </Fade>
       </div>
